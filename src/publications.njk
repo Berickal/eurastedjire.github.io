@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+title: Publications
+permalink: /publications/
+---
+{% from "partials/links.njk" import linkList %}
+
+<h1>Publications</h1>
+<p class="muted">Peer-reviewed papers and preprints on LLM memorization, AI4SE, and trustworthy machine learning.</p>
+
+<ul class="pill-list" id="topic-filters" role="group" aria-label="Filter publications by topic">
+  <li><button type="button" class="pill" data-filter="all" aria-pressed="true">All</button></li>
+  {% for tag in publicationTags %}
+  <li><button type="button" class="pill" data-filter="{{ tag }}" aria-pressed="false">{{ tag }}</button></li>
+  {% endfor %}
+</ul>
+
+<ul class="entry-list" id="publication-list">
+  {% for pub in publications | sort(true, false, "date") %}
+  <li class="entry" data-tags="{{ pub.tags | join(',') }}">
+    <p class="entry-title">{{ pub.title }}</p>
+    <p class="entry-year">{{ pub.year }}</p>
+    <p class="entry-meta">{{ pub.authors }} <span class="venue-mark" aria-hidden="true">&#9654;&#xFE0E;</span> {{ pub.venue }} <span class="venue-mark" aria-hidden="true">&#9664;&#xFE0E;</span></p>
+    {% if pub.abstract %}
+    <p class="entry-abstract">{{ pub.abstract }}</p>
+    {% endif %}
+    {{ linkList(pub.links) }}
+    {% if pub.tags and pub.tags.length %}
+    <ul class="pill-list entry-tags">
+      {% for tag in pub.tags %}
+      <li class="pill">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+<p class="empty-state" id="no-results" hidden>No publications match this topic yet.</p>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('#topic-filters .pill');
+  var entries = document.querySelectorAll('#publication-list .entry');
+  var empty = document.getElementById('no-results');
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      btn.setAttribute('aria-pressed', 'true');
+
+      var filter = btn.getAttribute('data-filter');
+      var visibleCount = 0;
+
+      entries.forEach(function (entry) {
+        var tags = entry.getAttribute('data-tags').split(',');
+        var show = filter === 'all' || tags.indexOf(filter) !== -1;
+        entry.hidden = !show;
+        if (show) visibleCount++;
+      });
+
+      empty.hidden = visibleCount !== 0;
+    });
+  });
+})();
+</script>

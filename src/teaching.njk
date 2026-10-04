@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+title: Teaching
+permalink: /teaching/
+---
+<h1>Teaching</h1>
+
+{% if teaching and teaching.length %}
+{% for inst in teaching %}
+<section class="teaching-block">
+  <div class="teaching-head">
+    {% if inst.logo %}
+    <img class="teaching-logo" src="{{ inst.logo | url }}" alt="{{ inst.institution }} logo">
+    {% endif %}
+    <div>
+      <h2>{{ inst.institution }}</h2>
+      <p class="muted">{{ inst.role }}{% if inst.location %} · {{ inst.location }}{% endif %}</p>
+    </div>
+  </div>
+
+  <ul class="entry-list">
+    {% for course in inst.courses | sort(true, false, "term") %}
+    <li class="entry">
+      <p class="entry-title">{{ course.title }}</p>
+      <p class="entry-year">{{ course.term }}</p>
+      <p class="entry-meta">{{ course.program }}</p>
+      <ul class="pill-list entry-tags">
+        {% if course.lectures %}<li class="pill">{{ course.lectures }}h lectures</li>{% endif %}
+        {% if course.labs %}<li class="pill">{{ course.labs }}h labs</li>{% endif %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+{% else %}
+<p class="empty-state">No teaching experience listed yet.</p>
+{% endif %}

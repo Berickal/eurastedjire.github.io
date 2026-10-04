@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Data Leakage & Memorization in LLMs",
+    "description": "My core PhD research: developing methods to detect and quantify when large language models memorize training data instead of generalizing, with implications for privacy, IP, and trustworthy evaluation of code and text models.",
+    "tags": ["LLM Memorization", "Trustworthy ML"],
+    "links": []
+  },
+  {
+    "title": "AI for Software Engineering (AI4SE)",
+    "description": "Applying and stress-testing LLMs on software engineering tasks — code generation, semantic similarity, multi-language code generation, and bug fixing — to understand where they generalize and where they fail.",
+    "tags": ["AI4SE"],
+    "links": []
+  },
+  {
+    "title": "Audio Deepfake Detection",
+    "description": "Earlier work on synthetic voice generation and detecting deepfake audio through acoustic parameter analysis (energy, pitch, spectral and cepstral features), conducted at CITADEL, Burkina Faso.",
+    "tags": ["Deepfake Detection", "Audio Processing"],
+    "links": []
+  }
+]

@@ -1,0 +1,448 @@
+:root {
+  --gray-950: #0a0a0a;
+  --gray-900: #171716;
+  --gray-700: #45443f;
+  --gray-500: #737169;
+  --gray-300: #d6d4cb;
+  --gray-200: #e7e5dd;
+  --gray-100: #f2f1ea;
+
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --pill-bg: var(--gray-100);
+  --text: var(--gray-950);
+  --muted: var(--gray-500);
+  --border: var(--gray-300);
+
+  /* the only two colors on the site — reserved for links/buttons/pills on hover */
+  --accent-primary: #a3402a;
+  --accent-external: #2d5f8a;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 2;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--surface);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 1.75rem; margin-top: 3rem; }
+
+p { margin: 0 0 1rem; }
+
+.muted { color: var(--muted); }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+/* header */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-name {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent-external);
+  border-color: currentColor;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* main content */
+
+main {
+  padding: 3rem 1.5rem 5rem;
+  min-height: calc(100vh - 6rem - 8.5rem); /* subtract header + footer height */
+}
+
+/* generic link */
+
+.link {
+  color: var(--gray-700);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.link:hover, .link:focus-visible {
+  border-color: currentColor;
+}
+
+.link--primary:hover, .link--primary:focus-visible {
+  color: var(--accent-primary);
+}
+
+.link--external:hover, .link--external:focus-visible {
+  color: var(--accent-external);
+}
+
+.link-list {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+/* arrow link, e.g. "View all publications" */
+
+.arrow-link {
+  display: inline-block;
+  color: var(--gray-700);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease;
+}
+.arrow-link:hover, .arrow-link:focus-visible {
+  color: var(--accent-external);
+}
+
+/* solid CTA button — stays monochrome, no color reveal (already max-contrast) */
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.7rem 1.25rem;
+  border: 1px solid var(--text);
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-outline:hover, .btn-outline:focus-visible {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* pills: static tag pills + interactive filter pills */
+
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  color: var(--gray-700);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+button.pill {
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+button.pill:hover,
+button.pill:focus-visible {
+  color: var(--accent-external);
+  border-color: var(--accent-external);
+}
+
+button.pill[aria-pressed="true"] {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo-wrap { order: -1; }
+}
+
+.hero-photo-wrap {
+  aspect-ratio: 1;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.02);
+  transition: filter 0.35s ease;
+}
+
+.hero-photo:hover {
+  filter: grayscale(0);
+}
+
+.hero-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* about */
+
+.about-block {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+/* selected publications preview cards */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.card-meta {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* list entries: publications, research, talks, teaching */
+
+.entry-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.entry {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 1rem;
+}
+
+.entry:last-child { padding-bottom: 0; }
+
+.entry-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 0.3rem;
+  grid-column: 1;
+}
+
+.entry-year {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.entry-meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0 0 0.6rem;
+  grid-column: 1 / -1;
+}
+
+/* ▶ venue ◀ markers: keep them small and text-style (not emoji) */
+.venue-mark {
+  font-size: 0.7em;
+  vertical-align: 0.1em;
+  margin: 0 0.15em;
+}
+
+.entry-abstract {
+  grid-column: 1 / -1;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+}
+
+.entry-tags {
+  grid-column: 1 / -1;
+}
+
+.entry[hidden] { display: none; }
+
+.empty-state {
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* footer */
+
+.site-footer {
+  background: var(--gray-950);
+  color: var(--gray-300);
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.site-footer .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer .link-list {
+  margin: 0;
+}
+
+.site-footer .link {
+  color: var(--gray-300);
+  border-bottom-color: transparent;
+}
+
+.site-footer .link:hover, .site-footer .link:focus-visible {
+  border-color: currentColor;
+}
+
+.site-footer .copyright {
+  color: var(--gray-500);
+  font-size: 0.85rem;
+}
+
+/* teaching */
+
+.teaching-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.teaching-head h2 { margin: 0; font-size: 1.4rem; }
+.teaching-head p { margin: 0.2rem 0 0; }
+
+/* logo follows the site concept: grayscale until hovered */
+.teaching-logo {
+  height: 56px;
+  width: auto;
+  filter: grayscale(1);
+  transition: filter 0.35s ease;
+}
+
+.teaching-logo:hover { filter: grayscale(0); }
+
+/* CV page */
+
+.cv-embed {
+  width: 100%;
+  height: 80vh;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+}

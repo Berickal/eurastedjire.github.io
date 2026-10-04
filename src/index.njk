@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+title: About
+---
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">{{ profile.eyebrow }}</p>
+    <h1>{{ profile.name }}</h1>
+    <p>{{ profile.bio }}</p>
+    <div class="hero-links">
+      {% for link in profile.links %}
+      {% if link.type == 'primary' %}
+      <a class="btn-outline" href="{{ link.url }}">{{ link.label }}</a>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    {% if profile.photo %}
+    <img class="hero-photo" src="{{ profile.photo | url }}" alt="Portrait of {{ profile.name }}"{% if profile.photoPosition %} style="object-position: {{ profile.photoPosition }}"{% endif %}>
+    {% else %}
+    <span class="hero-initials">{{ profile.initials }}</span>
+    {% endif %}
+  </div>
+</section>
+
+<section class="about-block">
+  <h2>About</h2>
+  <p>{{ profile.about }}</p>
+
+  {% if profile.tags and profile.tags.length %}
+  <ul class="pill-list">
+    {% for tag in profile.tags %}
+    <li class="pill">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+
+<section class="about-block">
+  <h2>Selected Publications</h2>
+  <div class="card-grid">
+    {% for pub in publications | sort(true, false, "date") | limit(3) %}
+    <div class="card">
+      <p class="card-title">{{ pub.title }}</p>
+      <p class="card-meta">{{ pub.venue }} · {{ pub.year }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <a class="arrow-link" href="{{ '/publications/' | url }}">View all publications &rarr;</a>
+</section>

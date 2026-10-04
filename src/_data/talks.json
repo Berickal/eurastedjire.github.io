@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Quand les modèles IA dérapent: Exploration des vulnérabilités des modèles IA",
+    "type": "Live workshop (in French)",
+    "event": "LinkedIn Live, with Ousmane Diallo (AI Engineer)",
+    "location": "Online",
+    "date": "2026-03-21",
+    "description": "A practical workshop on what happens when AI models go wrong. It starts from the critical domains where AI is deployed (finance, transport, health, justice and HR), where an error can have real consequences. It then explores the hidden vulnerabilities of models (adversarial attacks, model manipulation, hallucinations, and the limits of intelligent systems) and closes with mitigation and defense strategies such as adversarial training and input pre-processing, and the principles of ethical AI: transparency, fairness, accountability, privacy and robustness.",
+    "links": [
+      { "label": "Event", "url": "https://www.linkedin.com/events/7438303630228733955/", "type": "external" }
+    ]
+  },
+  {
+    "title": "Learned or Memorized? Quantifying Memorization Advantage in LLMs",
+    "type": "Invited talk",
+    "event": "UC Davis Reading Group",
+    "location": "Online (Zoom)",
+    "date": "2026-07-14",
+    "description": "A talk on how to tell whether an LLM has truly learned a task or has simply memorized its training data. The same model can score 99% on one benchmark and 51% on another, which raises the question of data leakage. I presented a perturbation-based approach that measures how sensitive a model's performance is to input transformations, quantifying a \"memorization advantage\" without needing access to the model's internals, and discussed results across code LLMs and benchmarks, followed by an open discussion with the group."
+  },
+  {
+    "title": "Memorization in Large Language Models",
+    "type": "Keynote (in French)",
+    "event": "Semaine du Numérique 2024, with LuxDev / SnT4Dev",
+    "location": "Online (Benin)",
+    "date": "2024-11-04",
+    "description": "A keynote introducing data memorization in LLMs: what it is and why it matters for the reliability of reported performance, how the phenomenon can be exploited, the challenges it raises, and the precautions to take when building on and evaluating these models."
+  }
+]

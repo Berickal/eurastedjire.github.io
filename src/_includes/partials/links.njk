@@ -1,0 +1,9 @@
+{% macro linkList(links) %}
+{% if links and links.length %}
+<ul class="link-list">
+  {% for link in links %}
+  <li><a class="link link--{{ link.type or 'external' }}" href="{{ link.url | url }}">{{ link.label }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endmacro %}

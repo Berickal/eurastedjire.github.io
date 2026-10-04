@@ -1,0 +1,19 @@
+{
+  "name": "Albérick Euraste Djiré",
+  "eyebrow": "Doctoral Researcher, SnT / TruX",
+  "title": "PhD Candidate in Computer Science",
+  "affiliation": "University of Luxembourg",
+  "location": "Luxembourg",
+  "photo": "/assets/img/photo.jpeg",
+  "photoPosition": "30% 50%",
+  "initials": "AD",
+  "bio": "I am a first-year PhD student at the University of Luxembourg, working with SnT / TruX on the evaluation of data leakage and memorization in large language models. I'm broadly interested in the design and reliability of digital systems, with a focus on how LLMs behave when applied to code and software engineering tasks.",
+  "about": "Before starting my PhD in March 2024, I worked as an AI researcher at CITADEL (Ouagadougou, Burkina Faso) on synthetic voice generation and deepfake audio detection, and as a web developer and network technician on various infrastructure and platform projects. My current research sits at the intersection of AI4SE (AI for Software Engineering) and trustworthy machine learning — asking whether large language models genuinely generalize or simply memorize the data they were trained on.",
+  "tags": ["LLM Memorization", "AI4SE", "Deepfake Detection", "Trustworthy ML"],
+  "links": [
+    { "label": "Email", "url": "mailto:eurasted@gmail.com", "type": "primary" },
+    { "label": "View Curriculum Vitae", "url": "/cv/", "type": "primary" },
+    { "label": "Google Scholar", "url": "https://scholar.google.com/citations?user=K7qkYY4AAAAJ&hl=fr", "type": "external" },
+    { "label": "GitHub", "url": "https://github.com/Berickal", "type": "external" }
+  ]
+}

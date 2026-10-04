@@ -1,0 +1,206 @@
+[
+  {
+    "title": "Code Detectors Have a Half-Life: Obsolescence and Metric Illusions in LLM-Generated Code Detection",
+    "authors": "A. E. Djiré",
+    "venue": "41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)",
+    "year": 2026,
+    "date": "2026-10-01",
+    "abstract": "Code detectors can become obsolete as code-generating models evolve: a detector validated on one generation of models may not transfer to the next. We call this limited useful life a detector half-life. We evaluate eight general-purpose LLM judges and three dedicated detectors on human-written code and code produced by seven generators across C++, Java, and Python. Our results reveal two problems. First, performance varies considerably across generators and prompting strategies, suggesting that some detectors rely on generator-specific patterns rather than general evidence of code provenance. Second, accuracy can conceal severe prediction bias. DetectCodeGPT and GPT-Sniffer achieved an accuracy of 0.50 but an F1 score of 0.00 across all generators because they classified almost every sample as AI-generated. However, general-purpose LLM judges achieved stronger accuracy and F1 scores. Our results show that general-purpose LLMs are promising training-free judges of code provenance and can outperform dedicated detectors. However, their reliability depends on the judge model, the code generator, and the prompting strategy. We therefore recommend evaluating LLM judges across multiple generators and reporting macro-F1 alongside class-specific precision and recall.",
+    "tags": [
+      "LLM-Generated Code",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2610.01664",
+        "type": "external"
+      }
+    ]
+  },
+  {
+    "title": "Encoder or Reader? Identifying the Operative Role of LLMs in Multimodal Time-Series Forecasting",
+    "authors": "A. A. Bonkoungou, P. K. Rajput, A. E. Djiré, N. Khaledian, A. K. Kaboré, J. Klein, T. F. Bissyandé",
+    "venue": "IEEE International Conference on Machine Learning and Applications (ICMLA 2026)",
+    "year": 2026,
+    "date": "2026-09-30",
+    "abstract": "Recent controlled ablations established that a large language model acting as a numerical estimator on top of a time-series encoder can be replaced by a single attention block of matched size without measurable loss in accuracy. We hypothesize that this null result reflects a misallocation of the LLM rather than an absence of value, and we test a hybrid architecture that reassigns it from numerical extrapolation to textual reading. A frozen Chronos-Bolt model emits a quantile forecast and six perception features, while an instruction-tuned Qwen-2.5-1.5B with LoRA adapters reads the synchronized textual context to produce a bounded residual correction. Across eight Time-MMD domains, five seeds, and horizons H ∈ {12, 24, 36}, the hybrid beats the Chronos zero-shot baseline on five of eight domains at H = 36, with relative continuous ranked probability score (CRPS) improvements of 28% on Economy and 21% on Health_US. The mechanism decomposes into an encoder pathway operating on perception features and a reader pathway operating on text; the largest gains are carried by the encoder pathway, and the operative regime is identifiable from training trajectories alone.",
+    "tags": [
+      "Time-Series Forecasting",
+      "LLM Reasoning"
+    ],
+    "links": []
+  },
+  {
+    "title": "Evaluating Inference-Time Defenses Against Package Hallucination in LLM-Generated Code",
+    "authors": "A. E. Djiré, I. E. Olatunji, M. Tessa, E. T. Barr, J. Klein, T. F. Bissyandé",
+    "venue": "41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)",
+    "year": 2026,
+    "date": "2026-08-23",
+    "abstract": "LLMs are increasingly used for code generation, yet they frequently hallucinate non-existent software packages, creating exploitable entry points into the software supply chain. We make four contributions to this problem. First, we show that prior evaluation methodologies systematically inflate hallucination rates by misclassifying standard-library modules as hallucinations in some languages. For Python, the overestimation reaches 9.4 percentage points. Second, we evaluate seven inference-time defenses for mitigating package hallucinations, including five guided decoding strategies (Greedy, Contrastive, DoLa, Nudging, and Active Layer-Contrastive Decoding), an iterative self-refinement approach (Self-Refine), and a Retrieval-Augmented Generation (RAG)-based defense. Across eight models spanning five families and four programming languages (Python, JavaScript, Ruby, Rust), RAG reduces the package hallucination rate (PHR) in 18 of 32 model–language configurations. Third, we introduce Package Utility (PU) to assess whether defenses preserve valid and task-relevant recommendations. Among strategies evaluated, Greedy decoding provides the strongest average mitigation–utility trade-off. Fourth, we stress-test all strategies under adversarial prompts seeded with fabricated package names and find that PHR surges by up to 45 percentage points relative to standard prompts, with Ruby consistently the most vulnerable language (80.9–95.2%). Under adversarial conditions, RAG and Self-Refine outperform all decoding-only strategies, indicating that robust defense requires either external grounding or iterative self-verification when prompts are actively hostile. Our results recast package hallucination as both a measurement problem and a decoding-time control problem, and they demonstrate that the choice of defense must be matched to the threat model and recommendation utility.",
+    "tags": [
+      "Hallucination",
+      "Software Supply Chain",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2608.22652",
+        "type": "external"
+      }
+    ]
+  },
+  {
+    "title": "Do Not Copy/Paste: Soft Barriers for Copying in AI-Assisted Programming",
+    "authors": "I. E. Olatunji, A. E. Djiré, J. Klein, T. F. Bissyandé",
+    "venue": "41st IEEE/ACM International Conference on Automated Software Engineering (ASE 2026)",
+    "year": 2026,
+    "date": "2026-08-23",
+    "abstract": "Copying a function from a chat window into an editor takes less than a second. For many uses of AI coding tools, that speed is the point; in settings such as programming education, code review, and security-sensitive development, it can also be the problem. This paper frames copy-paste as an AI code handoff problem: the moment model-generated text crosses from a conversational context into executable or committed software is a design boundary that current tools leave largely unmanaged. We argue that AI coding assistants should not only be evaluated by the code they generate, but also by how they mediate the transfer of that code into software artifacts. We propose soft barriers as one class of handoff-aware mechanisms. Soft barriers preserve access to AI assistance while making unexamined transfer less frictionless. As an initial technical probe, we instantiate this idea using Unicode output perturbations that preserve visual readability but disrupt naive copy-paste execution. We introduce Copy-Paste Resistance (CPR), the fraction of functionally correct clean solutions that become syntactically invalid after perturbation. Across HumanEval and MBPP with four LLMs and four perturbation families, we find that output-level barriers can achieve high copy-paste resistance, but their effectiveness is highly model- and task-dependent. An exploratory pilot with 18 participants provides early evidence that soft barriers can shift users from direct transfer toward editing and reconstruction. We do not present Unicode perturbations as a deployment-ready solution; rather, we use them as a minimal probe for a broader research agenda on practical, transparent, and policy-aware AI code handoff.",
+    "tags": [
+      "AI-Assisted Programming",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2608.22638",
+        "type": "external"
+      }
+    ]
+  },
+  {
+    "title": "Memorization Diagnostics for Code LLMs Should be Scale-Aware",
+    "authors": "P. K. Rajput, A. A. Bonkoungou, A. E. Djiré, X. Tang, Y. Song, I. E. Olatunji, E. H. Diallo, J. Klein, T. F. Bissyandé",
+    "venue": "Empirical Software Engineering (EMSE)",
+    "year": 2026,
+    "date": "2026-08-13",
+    "abstract": "The extent to which large language models for code rely on memorization over genuine understanding remains highly debated. While current literature frequently reports widespread memorization, evaluating the underlying probing techniques across dense architectures reveals a severe breakdown in their utility at scale. Traditional encoder-style probes using perturbations such as synonym fuzzing or dead-code insertion struggle to expose memorization in scaled models, even on known-contaminated benchmarks, and decoder-style probes that rely on log probabilities show similar performance degradation. The specific mode of failure for these probes, particularly why such techniques disrupt smaller models but fail to impact larger ones, motivates us to untangle representation load from memorization rather than treating them as a single phenomenon. By applying invertible mathematical transforms to numeric problems, we isolate these two factors and reveal that scaled encoders successfully absorb substantial representation load while still converging on the correct family of solutions. In practical software engineering, this ability to adapt to varying surface forms is what truly matters for usability and generalizability in LLM and agentic applications. Whether a specific solution was seen during training becomes a much less pressing question because although memorization inflates scores on contaminated benchmarks, factoring out representation load makes it debatable how much we should truly care if a functional answer was originally memorized. Future evaluations must therefore be built around separating these phenomena rather than relying on methodologies that quietly entangle them.",
+    "tags": [
+      "LLM Memorization",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2608.12771",
+        "type": "external"
+      }
+    ]
+  },
+  {
+    "title": "Learned or Memorized? Quantifying Memorization Advantage in Code LLMs",
+    "authors": "A. E. Djiré, A. K. Kaboré, J. Samhi, E. T. Barr, J. Klein, T. F. Bissyandé",
+    "venue": "48th IEEE/ACM International Conference on Software Engineering (ICSE)",
+    "year": 2026,
+    "abstract": "The lack of transparency about code datasets used to train large language models (LLMs) makes it difficult to detect, evaluate, and mitigate data leakage. We present a perturbation-based method to quantify memorization advantage in code LLMs, defined as the performance gap between likely seen and unseen inputs. We evaluate 8 open-source code LLMs on 19 benchmarks across four task families: code generation, code understanding, vulnerability detection, and bug fixing. Sensitivity patterns vary widely across models and tasks. For example, StarCoder reaches high sensitivity on some benchmarks (up to 0.8), while QwenCoder remains lower (mostly below 0.4), suggesting differences in generalization behavior. Task categories also differ: code summarization tends to show low sensitivity, whereas test generation is substantially higher. We then analyze two widely discussed benchmarks, CVEFixes and Defects4J, often suspected of leakage. Contrary to common concerns, both show low memorization advantage across models: CVEFixes remains below 0.1, and Defects4J is lower than other program repair benchmarks. These results suggest that, for these datasets, models may rely more on learned generalization than direct memorization. Overall, our findings provide evidence that memorization risk is highly task- and model-dependent, and highlight the need for stronger evaluation protocols, especially in security-focused settings.",
+    "tags": [
+      "LLM Memorization",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2604.13997",
+        "type": "external"
+      }
+    ],
+    "date": "2026-04-12"
+  },
+  {
+    "title": "Multi-Agent Strategies for Bridging Programming Language Gaps in Code Generation",
+    "authors": "M. B. Moumoula, S. L. Nikiema, A. E. Djiré, A. K. Kaboré, J. Klein, T. F. Bissyandé",
+    "venue": "ACM Transactions on Software Engineering and Methodology (TOSEM)",
+    "year": 2026,
+    "date": "2026-01-01",
+    "abstract": "Real-world software systems are inherently multilingual, but current large language models are not equally consistent across programming languages. This mismatch limits code generation usefulness, especially for underrepresented languages. Existing approaches improve code generation through fine-tuning, multi-agent reasoning, or translation, but remain language-specific, assume existing source code, or rely on per-language test suites. We introduce XL-CoGen, a three-stage multilingual code-generation pipeline that starts from a natural-language specification and a shared test list to generate correct implementations across multiple target languages. XL-CoGen first validates direct generation by constructing and correcting the test harness; when it fails, it transfers through empirically selected intermediate languages and translates validated solutions; it then repairs the best candidate through diagnosis and minimal patching. This design requires neither target-language training nor language-specific test suites. Across two benchmarks and multiple LLMs, XL-CoGen consistently improves over direct generation, with the largest gains on low-performing languages. In our Rust fine-tuning case study, XL-CoGen outperforms the best fine-tuned baseline by 22 percentage points and improves challenging languages by up to 33 points on multilingual benchmarks. Ablation results show that transfer and repair are complementary: repair suffices on easier tasks, whereas transfer becomes more important as difficulty increases, especially for weak target languages.",
+    "tags": [
+      "Multi-Agent Systems",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2509.19918",
+        "type": "external"
+      }
+    ]
+  },
+  {
+    "title": "How Small Transformations Expose the Weakness of Semantic Similarity Measures",
+    "authors": "S. L. Nikiema, A. E. Djiré, A. A. Bonkoungou, M. B. Moumoula, J. Samhi, A. K. Kaboré, J. Klein, T. F. Bissyandé",
+    "venue": "arXiv preprint",
+    "year": 2025,
+    "abstract": "This research examines how well different methods measure semantic similarity, which is important for various software engineering applications such as code search, API recommendations, automated code reviews, and refactoring tools. While large language models are increasingly used for these similarity assessments, questions remain about whether they truly understand semantic relationships or merely recognize surface patterns. The study tested 18 different similarity measurement approaches, including word-based methods, embedding techniques, LLM-based systems, and structure-aware algorithms, using a systematic testing framework that applies controlled changes to text and code to evaluate how well each method handles different types of semantic relationships. Some embedding-based methods incorrectly identified semantic opposites as similar up to 99.9 percent of the time, while certain transformer-based approaches occasionally rated opposite meanings as more similar than synonymous ones. Switching from Euclidean distance to cosine similarity improved embedding results by 24 to 66 percent. LLM-based approaches performed better at distinguishing semantic differences, producing low similarity scores (0.00–0.29) for genuinely different meanings, compared to embedding methods that incorrectly assigned high scores (0.82–0.99) to dissimilar content.",
+    "tags": [
+      "Semantic Similarity",
+      "AI4SE"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2509.09714",
+        "type": "external"
+      }
+    ],
+    "date": "2025-09-08"
+  },
+  {
+    "title": "Using Contrastive Learning to Improve Two-Way Reasoning in Large Language Models: The Obfuscation Task as a Case Study",
+    "authors": "S. L. Nikiema, J. Samhi, M. B. Moumoula, A. E. Djiré, A. K. Kaboré, J. Klein, T. F. Bissyandé",
+    "venue": "arXiv preprint",
+    "year": 2025,
+    "abstract": "This research addresses a fundamental question in AI: whether large language models truly understand concepts or simply recognize patterns. We propose bidirectional reasoning — the ability to apply transformations in both directions without being explicitly trained on the reverse direction — as a test for genuine understanding. We argue that true comprehension should naturally allow reversibility: a model that can change a variable name like userIndex to i should also be able to infer that i represents a user index without reverse training. Testing current language models, we discover cognitive specialization: when models are fine-tuned on forward tasks, their performance on those tasks improves, but their ability to reason bidirectionally becomes significantly worse. To address this, we develop Contrastive Fine-Tuning (CFT), which trains models using positive, negative, and forward-direction obfuscation examples, allowing reverse capabilities to develop naturally without explicit reverse training. Experiments show CFT successfully achieves bidirectional reasoning, enabling strong reverse performance while maintaining forward task capabilities.",
+    "tags": [
+      "LLM Reasoning",
+      "Contrastive Learning"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2509.05553",
+        "type": "external"
+      }
+    ],
+    "date": "2025-09-06"
+  },
+  {
+    "title": "Memorization or Interpolation? Detecting LLM Memorization through Input Perturbation Analysis",
+    "authors": "A. E. Djiré, A. K. Kaboré, E. T. Barr, J. Klein, T. F. Bissyandé",
+    "venue": "arXiv preprint",
+    "year": 2025,
+    "abstract": "While Large Language Models (LLMs) achieve remarkable performance through training on massive datasets, they can exhibit concerning behaviors such as verbatim reproduction of training data rather than true generalization. This memorization phenomenon raises significant concerns about data privacy, intellectual property rights, and the reliability of model evaluations. This paper introduces PEARL, a novel approach for detecting memorization in LLMs. PEARL assesses how sensitive an LLM's performance is to input perturbations, enabling memorization detection without requiring access to the model's internals. We investigate how input perturbations affect the consistency of outputs, enabling us to distinguish between true generalization and memorization. Our findings, following extensive experiments on the Pythia open model, provide a robust framework for identifying when the model simply regurgitates learned information. Applied on the GPT-4o models, the PEARL framework not only identified cases of memorization of classic texts from the Bible or common code from HumanEval, but also demonstrated that it can provide supporting evidence that some data, such as from New York Times news articles, were likely part of the training data of a given model.",
+    "tags": [
+      "LLM Memorization",
+      "Trustworthy ML"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2505.03019",
+        "type": "external"
+      }
+    ],
+    "date": "2025-05-05"
+  },
+  {
+    "title": "Evaluating Acoustic Parameters for DeepFake Audio Identification",
+    "authors": "A. E. Djiré, A. Sabané, A.-K. Kabore, R. Kafando, T. F. Bissyandé",
+    "venue": "2023 IEEE Afro-Mediterranean Conference on Artificial Intelligence (AMCAI)",
+    "year": 2023,
+    "abstract": "The progress in machine learning applied to signal processing offers interesting technological perspectives but also raises ethics and security concerns, with the emergence of audio deepfakes used to orchestrate scams. Although deepfake audio generation tools can produce audio that seems indistinguishable from real recordings, they can be detected through acoustic parameter analysis, which can attest to the authenticity of an audio extract. This work evaluates acoustic parameters — including energy, power, pitch, signal spectrum, and cepstral coefficients — for distinguishing genuine audio from deepfake audio.",
+    "tags": [
+      "Deepfake Detection",
+      "Audio Processing"
+    ],
+    "links": [
+      {
+        "label": "HAL",
+        "url": "https://hal.science/hal-04425415",
+        "type": "external"
+      }
+    ],
+    "date": "2023-01-01"
+  }
+]

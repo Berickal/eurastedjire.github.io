@@ -1,0 +1,38 @@
+[
+  {
+    "institution": "Université Virtuelle du Burkina Faso (UVBF)",
+    "location": "Burkina Faso",
+    "logo": "/assets/img/uvbf-logo.png",
+    "role": "Visiting Lecturer",
+    "courses": [
+      {
+        "term": "2025–2026",
+        "title": "Java EE (JEE)",
+        "program": "Software Engineering : Web & Mobile Development",
+        "lectures": 20,
+        "labs": 10
+      },
+      {
+        "term": "2025–2026",
+        "title": "Native iOS Development",
+        "program": "Software Engineering : Web & Mobile Development",
+        "lectures": 10,
+        "labs": 0
+      },
+      {
+        "term": "2025–2026",
+        "title": "Object-Oriented Programming (Java)",
+        "program": "Software Engineering",
+        "lectures": 14,
+        "labs": 6
+      },
+      {
+        "term": "2024–2025",
+        "title": "Object-Oriented Programming (Java)",
+        "program": "Software Engineering)",
+        "lectures": 12,
+        "labs": 12
+      }
+    ]
+  }
+]

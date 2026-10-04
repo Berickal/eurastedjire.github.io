@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} — {% endif %}{{ profile.name }}</title>
+  <meta name="description" content="{{ profile.title }}, {{ profile.affiliation }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="{{ '/' | url }}">{{ profile.name }}</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="{{ '/' | url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>About</a>
+        <a href="{{ '/publications/' | url }}"{% if '/publications/' in page.url %} aria-current="page"{% endif %}>Publications</a>
+        <a href="{{ '/research/' | url }}"{% if '/research/' in page.url %} aria-current="page"{% endif %}>Research</a>
+        <a href="{{ '/talks/' | url }}"{% if '/talks/' in page.url %} aria-current="page"{% endif %}>Talks</a>
+        <a href="{{ '/teaching/' | url }}"{% if '/teaching/' in page.url %} aria-current="page"{% endif %}>Teaching</a>
+        <a href="{{ '/cv/' | url }}"{% if '/cv/' in page.url %} aria-current="page"{% endif %}>CV</a>
+        <a href="{{ '/contact/' | url }}"{% if '/contact/' in page.url %} aria-current="page"{% endif %}>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>{{ profile.name }} — {{ profile.affiliation }}</span>
+      <ul class="link-list">
+        {% for link in profile.links %}
+        {% if link.type == 'external' %}
+        <li><a class="link" href="{{ link.url }}">{{ link.label }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      <span class="copyright">&copy; {{ "" | year }} {{ profile.name }}</span>
+    </div>
+  </footer>
+</body>
+</html>

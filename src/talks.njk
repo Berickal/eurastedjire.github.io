@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+title: Talks
+permalink: /talks/
+---
+{% from "partials/links.njk" import linkList %}
+
+<h1>Talks</h1>
+
+{% if talks and talks.length %}
+<ul class="entry-list">
+  {% for talk in talks | sort(true, false, "date") %}
+  <li class="entry">
+    <p class="entry-title">{{ talk.title }}</p>
+    <p class="entry-year">{{ talk.date | formatDate }}</p>
+    <p class="entry-meta">{% if talk.type %}{{ talk.type }} · {% endif %}{{ talk.event }} · {{ talk.location }}</p>
+    {% if talk.description %}
+    <p class="entry-abstract">{{ talk.description }}</p>
+    {% endif %}
+    {{ linkList(talk.links) }}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="empty-state">No talks listed yet.</p>
+{% endif %}

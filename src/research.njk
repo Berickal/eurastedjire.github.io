@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: Research
+permalink: /research/
+---
+{% from "partials/links.njk" import linkList %}
+
+<h1>Research</h1>
+
+<ul class="entry-list">
+  {% for item in research %}
+  <li class="entry">
+    <p class="entry-title">{{ item.title }}</p>
+    <p class="entry-meta">{{ item.description }}</p>
+    {{ linkList(item.links) }}
+    {% if item.tags and item.tags.length %}
+    <ul class="pill-list entry-tags">
+      {% for tag in item.tags %}
+      <li class="pill">{{ tag }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

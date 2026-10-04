@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Contact
+permalink: /contact/
+---
+<h1>Contact</h1>
+
+<p>{{ profile.name }}<br>{{ profile.title }}<br>{{ profile.affiliation }}{% if profile.location %} · {{ profile.location }}{% endif %}</p>
+
+<div class="hero-links">
+  {% for link in profile.links %}
+  {% if link.type == 'primary' %}
+  <a class="btn-outline" href="{{ link.url }}">{{ link.label }}</a>
+  {% else %}
+  <a class="link link--external" href="{{ link.url }}">{{ link.label }}</a>
+  {% endif %}
+  {% endfor %}
+</div>
