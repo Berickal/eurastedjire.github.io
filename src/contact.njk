@@ -10,9 +10,9 @@ permalink: /contact/
 <div class="hero-links">
   {% for link in profile.links %}
   {% if link.type == 'primary' %}
-  <a class="btn-outline" href="{{ link.url }}">{{ link.label }}</a>
+  <a class="btn-outline" href="{{ link.url | url }}">{{ link.label }}</a>
   {% else %}
-  <a class="link link--external" href="{{ link.url }}">{{ link.label }}</a>
+  <a class="link link--external" href="{{ link.url | url }}">{{ link.label }}</a>
   {% endif %}
   {% endfor %}
 </div>

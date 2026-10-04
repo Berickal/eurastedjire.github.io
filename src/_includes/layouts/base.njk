@@ -35,7 +35,7 @@
       <ul class="link-list">
         {% for link in profile.links %}
         {% if link.type == 'external' %}
-        <li><a class="link" href="{{ link.url }}">{{ link.label }}</a></li>
+        <li><a class="link" href="{{ link.url | url }}">{{ link.label }}</a></li>
         {% endif %}
         {% endfor %}
       </ul>
